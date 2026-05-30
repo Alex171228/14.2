@@ -69,9 +69,9 @@ docker compose ps
 - RabbitMQ Management UI: [http://localhost:15672](http://localhost:15672);
 - логин и пароль: `guest / guest`.
 
-```text
-[МЕСТО ДЛЯ СКРИНШОТА 1 - RabbitMQ запущен]
-```
+
+<img width="2538" height="904" alt="image" src="https://github.com/user-attachments/assets/44e057c0-f883-4f6b-8187-5700b7485ef7" /> 
+
 
 ---
 
@@ -310,9 +310,9 @@ go run ./services/tasks/cmd/tasks
 }
 ```
 
-```text
-[МЕСТО ДЛЯ СКРИНШОТА 2 - Получение токена]
-```
+
+<img width="1463" height="911" alt="image" src="https://github.com/user-attachments/assets/39bfc57a-b163-4d56-b2f4-ba15eddbf138" /> 
+
 
 ### Успешная обработка job
 
@@ -344,13 +344,12 @@ curl -i -X POST http://localhost:8082/v1/jobs/process-task `
 }
 ```
 
-```text
-[МЕСТО ДЛЯ СКРИНШОТА 3 - Успешная постановка job]
-```
+<img width="1448" height="949" alt="image" src="https://github.com/user-attachments/assets/d0f5392d-8117-4077-80cb-c41a0876bd95" /> 
 
-```text
-[МЕСТО ДЛЯ СКРИНШОТА 4 - Успешная обработка в worker]
-```
+
+<img width="2078" height="51" alt="image" src="https://github.com/user-attachments/assets/78a12c2a-d038-48b8-9cc2-dcf420588ac9" /> 
+
+
 
 ### Обработка с ошибкой, retries и DLQ
 
@@ -380,9 +379,8 @@ job scheduled for retry
 job published to dlq
 ```
 
-```text
-[МЕСТО ДЛЯ СКРИНШОТА 5 - Retry в worker]
-```
+<img width="2247" height="202" alt="image" src="https://github.com/user-attachments/assets/eab33724-aaf3-4a52-bfd5-6bb65e4c8b87" />
+
 
 ### Проверка через RabbitMQ Management UI
 
@@ -395,29 +393,8 @@ job published to dlq
 - наличие consumer у основной очереди;
 - попадание сообщения в DLQ после неудачной обработки.
 
-```text
-[МЕСТО ДЛЯ СКРИНШОТА 6 - Сообщение в DLQ]
-```
+<img width="1899" height="774" alt="image" src="https://github.com/user-attachments/assets/b333c269-cc7a-4dc7-a897-66f72010c322" /> 
 
----
-
-## Проверка соответствия заданию
-
-В рамках практической работы требовалось:
-
-- поднять RabbitMQ;
-- создать основную очередь задач и DLQ;
-- реализовать endpoint для постановки `job` в очередь;
-- реализовать `worker` по модели producer-consumer;
-- добавить поле `attempt`;
-- реализовать ограничение числа попыток;
-- реализовать перевод сообщения в DLQ при превышении лимита попыток;
-- реализовать идемпотентную проверку по `message_id`;
-- показать успешную обработку и обработку с ошибкой.
-
-Все перечисленные требования в проекте выполнены.
-
----
 
 ## Выводы
 
