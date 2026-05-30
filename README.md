@@ -370,7 +370,7 @@ curl -i -X POST http://localhost:8082/v1/jobs/process-task `
 - третья попытка завершается ошибкой;
 - после превышения лимита сообщение публикуется в `task_jobs_dlq`.
 
-В логах `worker` должны быть видны строки:
+В логах `worker` видны строки:
 
 ```text
 task job received
@@ -386,7 +386,7 @@ job published to dlq
 
 Открыть [http://localhost:15672](http://localhost:15672), войти под `guest / guest`, затем перейти в раздел `Queues and Streams`.
 
-На странице должно быть видно:
+На странице видно:
 
 - очередь `task_jobs`;
 - очередь `task_jobs_dlq`;
